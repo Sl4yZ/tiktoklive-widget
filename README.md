@@ -206,7 +206,7 @@ Distributed under the MIT License. See `LICENSE` file for more information.
 <!-- CONTACT -->
 ## Contact
 
-Zayed Charef - [@twitter_handle](https://twitter.com/twitter_handle) - zayed.charef@gmail.com
+Zayed Charef - [@zayed_charef](https://twitter.com/zayed_charef) - zayed.charef@gmail.com
 
 Project Link: [https://github.com/Sl4yZ/tiktoklive-widget](https://github.com/Sl4yZ/tiktoklive-widget)
 
@@ -238,5 +238,5 @@ Project Link: [https://github.com/Sl4yZ/tiktoklive-widget](https://github.com/Sl
 [license-shield]: https://img.shields.io/github/license/Sl4yZ/tiktoklive-widget.svg?style=for-the-badge
 [license-url]: https://github.com/Sl4yZ/tiktoklive-widget/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[linkedin-url]: https://www.linkedin.com/in/zayed-charef-1b1536188/
 [product-screenshot]: images/screenshot.png
