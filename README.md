@@ -21,7 +21,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Sl4yZ/tiktoklive-widget">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://icones.pro/wp-content/uploads/2021/03/logo-icone-tiktok-simbolo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">TikTokLive-Widget</h3>
@@ -29,7 +29,7 @@
   <p align="center">
     A socket client/server program that exposes a widget with alerts (such as gifts, followers ...) for a specific user streaming on Tik Tok Live platform.
     <br />
-    <a href="https://github.com/Sl4yZ/tiktoklive-widget"><strong>Explore the docs »</strong></a>
+    <!-- <a href="https://github.com/Sl4yZ/tiktoklive-widget"><strong>Explore the docs »</strong></a> -->
     <br />
     <br />
     <a href="https://github.com/Sl4yZ/tiktoklive-widget">View Demo</a>
@@ -73,7 +73,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 This program allows you to show alerts for TikTok Live events on your streaming client such as OBS or StreamLABS.
 The program exposes an html page where alerts can show off.
