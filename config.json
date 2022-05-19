@@ -1,0 +1,33 @@
+{
+    "commands_cooldown": 3000,
+    "commands": {
+        "!commands": {
+            "message": "Liste des commandes :",
+            "moderatorsOnly": true
+        },
+        "!pseudo": {
+            "message": "Pseudo Epic Games : Elric_off",
+            "moderatorsOnly": false
+        },
+        "!epic": {
+            "message": "Code créateur : Elric",
+            "moderatorsOnly": false
+        },
+        "!yt": {
+            "message": "YouTube : Elric_off",
+            "moderatorsOnly": false
+        },
+        "!youtube": {
+            "message": "YouTube : Elric_off",
+            "moderatorsOnly": false
+        },
+        "!twitch": {
+            "message": "Twitch : Elric_off",
+            "moderatorsOnly": false
+        },
+        "!insta": {
+            "message": "Instagram : @elric_off",
+            "moderatorsOnly": false
+        }
+    }
+}

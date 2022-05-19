@@ -11,8 +11,8 @@ async function sendAlert(data) {
         },
         style: {
             background: 'linear-gradient(to right, #00b09b, #96c93d)',
-			height: 'auto',
-			fontSize: '40px'
+            height: 'auto',
+            fontSize: '40px',
         },
         duration: 10000,
     }).showToast();
@@ -21,7 +21,7 @@ async function sendAlert(data) {
 function dispatchEvents(queue) {
     const event = queue.shift();
     if (undefined !== event || ('string' === typeof event && '' !== event.trim())) {
-        //console.log(event.data);
+        //log(event.data);
         switch (event.type) {
             case 'message':
                 sendAlert({
@@ -41,6 +41,8 @@ function dispatchEvents(queue) {
 
 export default function Client() {
     let queue = [];
+    let audio = new Audio('./sound.mp3');
+    audio.autoplay = false;
 
     const socket = io();
 
@@ -56,9 +58,8 @@ export default function Client() {
         queue.push({ type: 'message', data: data });
     });
     socket.on('gift', data => {
-		if (data.repeatEnd)
-        	queue.push({ type: 'gift', data: data });
-		console.log(queue)
+        audio.play();
+        queue.push({ type: 'gift', data: data });
     });
 
     setInterval(() => {
