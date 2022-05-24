@@ -33,7 +33,7 @@ export default async function StartChatConnection(io, port) {
         connection
             .connect()
             .then(state => {
-                log(`[✅]: Connected to roomId ${state.roomId} !`);
+                log(`[✅]: Connected to user '${config.app.tiktokUsername}' / roomId ${state.roomId} !`);
                 log('[💡]: Your widget is available at ' + config.app.widgetURI + ':' + port);
                 //io.emit('update_duration', process.env.TOAST_DURATION);
                 resolve(connection);
