@@ -1,14 +1,14 @@
 import { WebcastPushConnection } from 'tiktok-live-connector';
-import { exit } from 'process';
-import { log } from './utils.js';
+import { log, readJSON } from './utils.js';
+
+const config = await readJSON('./config.json');
 
 function initTikTokChatConnection() {
-    return new WebcastPushConnection(process.env.TIKTOK_USERNAME, {
+    return new WebcastPushConnection(config.app.tiktokUsername, {
         processInitialData: false,
         enableWebsocketUpgrade: true,
-        //requestPollingIntervalMs: 2000,
         clientParams: {
-            app_language: process.env.CLIENT_LOCALE,
+            app_language: config.app.clientLocale,
             device_platform: 'web',
         },
     });
@@ -19,7 +19,7 @@ export function checkAlive() {
         setInterval(() => {
             let connection = initTikTokChatConnection();
             connection.connect().catch(err => {
-                if (err.toString().includes('Already connected')) return;
+                if (err.toString().includes('Already connected')) resolve();
                 log('[❌]: The stream has ended.', err);
                 reject();
             });
@@ -27,15 +27,15 @@ export function checkAlive() {
     });
 }
 
-export default async function StartChatConnection(io) {
+export default async function StartChatConnection(io, port) {
     return new Promise(function (resolve, reject) {
         let connection = initTikTokChatConnection();
         connection
             .connect()
             .then(state => {
                 log(`[✅]: Connected to roomId ${state.roomId} !`);
-                log('[💡]: Your widget is available at ' + process.env.WIDGET_URI + ':' + process.env.PORT);
-                io.emit('update_duration', process.env.TOAST_DURATION);
+                log('[💡]: Your widget is available at ' + config.app.widgetURI + ':' + port);
+                //io.emit('update_duration', process.env.TOAST_DURATION);
                 resolve(connection);
             })
             .catch(err => {

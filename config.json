@@ -1,5 +1,10 @@
 {
-    "commands_cooldown": 3000,
+	"app": {
+		"widgetURI": "http://localhost",
+		"port": 3000,
+		"clientLocale": "fr-FR",
+		"tiktokUsername": "elric.off"
+	},
     "commands": {
         "!commands": {
             "message": "Liste des commandes :",
