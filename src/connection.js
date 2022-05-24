@@ -15,14 +15,16 @@ function initTikTokChatConnection() {
 }
 
 export function checkAlive() {
-    setInterval(() => {
-        let connection = initTikTokChatConnection();
-        connection.connect().catch(err => {
-            if (err.toString().includes('Already connected')) return;
-            log('[❌]: The stream has ended.', err);
-            exit(0);
-        });
-    }, 2000);
+    return new Promise((resolve, reject) => {
+        setInterval(() => {
+            let connection = initTikTokChatConnection();
+            connection.connect().catch(err => {
+                if (err.toString().includes('Already connected')) return;
+                log('[❌]: The stream has ended.', err);
+                reject();
+            });
+        }, 10000);
+    });
 }
 
 export default async function StartChatConnection(io) {

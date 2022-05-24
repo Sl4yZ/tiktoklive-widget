@@ -43,7 +43,7 @@ let init = async () => {
         })
         .then(() => {
             connected = true;
-            checkAlive();
+            checkAlive().catch(() => (connected = false));
         })
         .catch(err => {
             connected = false;
