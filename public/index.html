@@ -3,9 +3,18 @@
     <head>
         <title>TikTok Widget</title>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+        <link rel="stylesheet" type="text/css" href="./main.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source%20Sans%20Pro" />
         <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     </head>
-    <body></body>
+    <body class="widget">
+        <div class="alertbox" id="alertbox">
+            <img style="height: 200px" src="./img/alert_2.gif" />
+            <br />
+            <div id="name" class="name heartbeat">?</div>
+            a envoyé <span id="gift_count" class="gift_count"> ? </span> <span id="gift_type" class="gift_type">?</span><img id="gift_icon" height="50" src="?" />
+        </div>
+    </body>
     <script type="module">
         import Client from './client.js';
         Client();
