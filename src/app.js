@@ -6,7 +6,10 @@ import { exit } from 'process';
 import { Server } from 'socket.io';
 import StartChatConnection, { checkAlive } from './connection.js';
 import StartEventHandler from './events/eventHandler.js';
-import { log } from './utils.js';
+import { log, readJSON } from './utils.js';
+
+const config = await readJSON('./config.json');
+let port = 0;
 
 //Init Http Server
 const app = express();
@@ -19,25 +22,29 @@ const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
     cors: {
-        origin: [process.env.WIDGET_URI],
+        origin: [config.app.widgetURI],
     },
 });
 
-if (process.env.PORT === undefined || process.env.PORT === '') {
+if (process.env.PORT === undefined || process.env.PORT === '') port = config.app.port;
+else port = process.env.PORT;
+
+if (port === undefined || port === '') {
     log('[❌]: The environment variable PORT is undefined.');
     exit(84);
 }
+
 try {
-    httpServer.listen(process.env.PORT);
+    httpServer.listen(port);
 } catch {
-    log('[❌]: The port ' + process.env.PORT + 'is (maybe) already used');
+    log('[❌]: The port ' + port + ' seems to be already used');
     exit(84);
 } finally {
-    log('[✅]: Server started on port ' + process.env.PORT);
+    log('[✅]: Server started on port ' + port);
 }
 
 let init = async () => {
-    await StartChatConnection(io)
+    await StartChatConnection(io, port)
         .then(connection => {
             StartEventHandler(io, connection);
         })
